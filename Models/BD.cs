@@ -4,22 +4,38 @@ using Dapper;
 
 static class BD{
      private static string _connectionString = @"server=localhost;DataBase=Preguntados;Trusted_connection=True;";
-     public static list<Categoria> ObtenerCategorias(int idCategoria){
-           Candidato MiCategoria = null;
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string SQL = "SELECT Nombre FROM Categorias WHERE IdCategoria=@Categoria";
-            MiCategoria = db.QueryFirstOrDefault<Categoria>(SQL, new { Categoria = idCategoria });
-        }
-        return MiCategoria;
+     public static List<Categorias> ObtenerCategorias(){
+     List<Categorias> ListaCategorias= null;
+     using(SqlConnection db = new SqlConnection(_connectionString))
+     {
+        string sp="Traer lista categorias"
+        ListaCategorias = db.Query<Categorias>(sp, new { cat = cate} , 
+        commandType : CommandType.StoredProcedure).ToList();
      }
-       public static list<Categoria> ObtenerDificultades(int idDificultad){
-           Candidato MiDificultad = null;
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string SQL = "SELECT Nombre FROM Categorias WHERE IdCategoria=@Categoria";
-            MiCategoria = db.QueryFirstOrDefault<Categoria>(SQL, new { Categoria = idCategoria });
-        }
-        return MiCategoria;
      }
+
+     public static List<Dificultades> ObtenerDificultades(){
+     List<Dificultades> ListaDificultades= null;
+     using(SqlConnection db = new SqlConnection(_connectionString))
+     {
+        string sp="Traer lista dificultades"
+        ListaDificultades = db.Query<Dificultades>(sp, new { dif = dific} , 
+        commandType : CommandType.StoredProcedure).ToList();
+     }
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
