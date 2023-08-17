@@ -1,0 +1,8 @@
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.csproj.AssemblyReference.cache
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.AssemblyInfoInputs.cache
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.AssemblyInfo.cs
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.csproj.CoreCompileInputs.cache
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.RazorAssemblyInfo.cache
+C:\Users\47867214\preguntador1\obj\Debug\net7.0\preguntador1.RazorAssemblyInfo.cs

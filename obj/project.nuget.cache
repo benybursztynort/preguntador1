@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dKAfJVJqDNwRChKjftWVMifmBvdQtAXLBnoRbRtFF11VKxKM6v4laKbJ9UwnwXS7MvU9bHSYvB9clOoQGd/cMQ==",
+  "dgSpecHash": "6zK6rdpBtrAEaPGjjdvIMpWAfBccnJvgUaxfofKue3vxzaPw5Sj3+WMeGs/7tkugDlUXf5fgpqEBtf3PlGj47w==",
   "success": true,
   "projectFilePath": "C:\\Users\\47867214\\preguntador1\\preguntador1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\47867214\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512"
+  ],
   "logs": []
 }
