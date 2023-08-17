@@ -18,8 +18,22 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult ConfigurarJuego(int idCategoria,int idDificultad)
     {
+        Juego.InicializarJuego();
+        ViewBag.Categorias= BD.ObtenerCategorias(idCategoria);
+        ViewBag.Dificultades= BD.ObtenerDificultades(idDificultad);
+        return RedirectToAction("ConfigurarJuego","Home");
+    }
+     public IActionResult Comenzar(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria)
+    {
+        Juego.CargarPartida(username,dificultad,categoria,idPreg,idDificultad,idCategoria);
+        return View();
+        //VERFIFICAR QUE ESTE BIEN
+    }
+    public IActionResult Jugar(List<Pregunta>ListaPreguntas)
+    {
+        ViewBag.preguntaYrespuesta=Juego.ObtenerProximaPregunta(ListaPreguntas);//NOSE PORUQE NO FUNCA
         return View();
     }
 

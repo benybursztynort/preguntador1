@@ -13,30 +13,52 @@ public static class Juego{
         _cantidadPreguntasCorrectas=0;
     }
 
-    public static List<Categoria> ObtenerCategorias(){
-        return BD.ObtenerCategorias();
+    public static List<Categoria> ObtenerCategorias(int idCategoria){
+        return BD.ObtenerCategorias(idCategoria);
     }
 
-    public static List<Dificultad>ObtenerDificultades(){
-        return BD.ObtenerDificultades();
+    public static List<Dificultad>ObtenerDificultades(int idDificultad){
+        return BD.ObtenerDificultades(idDificultad);
     }
-    public static void CargarPartida(string username, int dificultad, int categoria){
-        _Preguntas=BD.ObtenerPreguntas();
-        _Respuestas=BD.ObtenerRespuestas();
+    public static void CargarPartida(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria){
+        _Preguntas=BD.ObtenerPreguntas(idDificultad,idCategoria);
+        _Respuestas=BD.ObtenerRespuestas(idPreg);
     }
-    public static void ObtenerProximaPregunta(){
+    public static void ObtenerProximaPregunta(List<Pregunta>ListaPreguntas){
         Random Pregunta =new Random();
-        Pregunta.next(0,ListaPreguntas.Count());
+        Pregunta.Next(0,ListaPreguntas.Count());
     }
-    public static List<Pregunta> ObtenerProximasRespuestas(int idPregunta){
+    public static List<Respuesta> ObtenerProximasRespuestas(int idPregunta){
+        List<Respuesta>listRespuesta = new List<Respuesta>();
+        for(int x = 0; x < _Respuestas.Count();x ++){
+            if(_Respuestas[x].IdPregunta==idPregunta)
+            listRespuesta.Add(_Respuestas[x]);
+        }
+        return listRespuesta;
     }
-    public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
-        
+    public static bool VerificarRespuesta(int idPregunta, int idrRespuesta){
+        Pregunta pregunta;
+        Respuesta respuesta;
+        for(int x =0; x< _Respuestas.Count();x++){
+            if(_Respuestas[x].IdrRespuesta ==idrRespuesta){
+                respuesta = _Respuestas[x];
+                break;
+            }
+        }
+            for (int x = 0; x < _Preguntas.Count(); x++){
+            if (_Preguntas[x].IdPregunta == idPregunta){
+                _Preguntas.RemoveAt(x);
+                break;
+            }
+        }
+        if (respuesta.Correcta){
+            int _puntajeActual=0;
+            _puntajeActual  =_puntajeActual+100;
+            _cantidadPreguntasCorrectas++;
+            return true;
+        }
+        return false;
+        }
     }
     
-
-
-
-
-
-    }
+    

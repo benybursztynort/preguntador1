@@ -7,6 +7,14 @@ public class Respuesta{
     public bool Correcta{get;set;}
 
     public Respuesta(){}
+    public Respuesta(int idrRespuesta,int idPregunta, int opcion, string contenido, string foto, bool correcta){
+        IdrRespuesta=idrRespuesta;
+        IdPregunta=idPregunta;
+        Opcion=opcion;
+        Contenido=contenido;
+        Foto=foto;
+        Correcta=correcta;
+    }
 
 
 }
