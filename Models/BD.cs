@@ -9,7 +9,7 @@ static class BD{
      List<Categoria> ListaCategorias= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="sp_ObtenerCategorias";
+        string sp="exec sp_ObtenerCategorias @cat";
         ListaCategorias = db.Query<Categoria>(sp, new { cat = idCategoria} , 
         commandType : CommandType.StoredProcedure).ToList();
      }
@@ -20,7 +20,7 @@ static class BD{
      List<Dificultad> ListaDificultades= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="sp_ObtenerDificultades";
+        string sp="exec sp_ObtenerDificultades @dif";
         ListaDificultades = db.Query<Dificultad>(sp, new { dif = idDificultad} , 
         commandType : commandType.StoredProcedure).ToList();
      }
@@ -31,8 +31,8 @@ static class BD{
      List<Pregunta> ListaPreguntas= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="sp_ObtenerPreguntas";
-        ListaPreguntas = db.Query<Pregunta>(sp, new { preg = } , //PREGUNTAR SOBRE EL PREG Y EL IGUAL
+        string sp="exec sp_ObtenerPreguntas @dif,@cat";
+        ListaPreguntas = db.Query<Pregunta>(sp, new { dif =idDificultad,cat=idCategoria } , //PREGUNTAR SOBRE EL PREG Y EL IGUAL
         commandType : CommandType.StoredProcedure).ToList();
      }
      return ListaPreguntas;
@@ -41,7 +41,7 @@ static class BD{
      List<Respuesta> ListaRespuestas= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="sp_ObtenerRespuestas";
+        string sp="exec sp_ObtenerRespuestas @res";
         ListaRespuestas = db.Query<Respuesta>(sp, new { res = idPreg} , 
         commandType : CommandType.StoredProcedure).ToList();
      }

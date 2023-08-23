@@ -23,7 +23,12 @@ public class HomeController : Controller
         Juego.InicializarJuego();
         ViewBag.Categorias= BD.ObtenerCategorias(idCategoria);
         ViewBag.Dificultades= BD.ObtenerDificultades(idDificultad);
+        viewBag.Preguntas= Juego.ObtenerProximaPregunta(ListaPreguntas);
+        if(viewBag.Preguntas==null){
+             return RedirectToAction("Jugar","Home");
+        } else{
         return RedirectToAction("ConfigurarJuego","Home");
+        }
     }
      public IActionResult Comenzar(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria)
     {
