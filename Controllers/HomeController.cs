@@ -31,10 +31,20 @@ public class HomeController : Controller
         return View();
         //VERFIFICAR QUE ESTE BIEN
     }
-    public IActionResult Jugar(List<Pregunta>ListaPreguntas)
+    public IActionResult Jugar(List<Pregunta>ListaPreguntas, int idPregunta)
     {
-        ViewBag.preguntaYrespuesta=Juego.ObtenerProximaPregunta(ListaPreguntas);//NOSE PORUQE NO FUNCA
-        return View();
+         ViewBag.pregunta=Juego.ObtenerProximaPregunta(ListaPreguntas);
+        if(viewBag.pregunta==null){
+             return View("Fin");}
+             else{
+         viewBag.respuesta=Juego.ObtenerProximasRespuestas(idPregunta);
+         return view("Juego");
+        }
+       
+    }
+    [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
+        viewBag.Correcta=Juego.VerificarRespuesta();
+        return view("Respuesta");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
