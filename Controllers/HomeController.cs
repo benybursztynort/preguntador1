@@ -18,13 +18,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult ConfigurarJuego(int idCategoria,int idDificultad)
+    public IActionResult ConfigurarJuego(int idCategoria,int idDificultad, List<Pregunta>ListaPreguntas)
     {
         Juego.InicializarJuego();
         ViewBag.Categorias= BD.ObtenerCategorias(idCategoria);
         ViewBag.Dificultades= BD.ObtenerDificultades(idDificultad);
-        viewBag.Preguntas= Juego.ObtenerProximaPregunta(ListaPreguntas);
-        if(viewBag.Preguntas==null){
+        ViewBag.Preguntas= Juego.ObtenerProximaPregunta(ListaPreguntas);
+        if(ViewBag.Preguntas==null){
              return RedirectToAction("Jugar","Home");
         } else{
         return RedirectToAction("ConfigurarJuego","Home");
@@ -39,17 +39,17 @@ public class HomeController : Controller
     public IActionResult Jugar(List<Pregunta>ListaPreguntas, int idPregunta)
     {
          ViewBag.pregunta=Juego.ObtenerProximaPregunta(ListaPreguntas);
-        if(viewBag.pregunta==null){
+        if(ViewBag.pregunta==null){
              return View("Fin");}
              else{
-         viewBag.respuesta=Juego.ObtenerProximasRespuestas(idPregunta);
-         return view("Juego");
+         ViewBag.respuesta=Juego.ObtenerProximasRespuestas(idPregunta);
+         return View("Juego");
         }
        
     }
     [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta){
-        viewBag.Correcta=Juego.VerificarRespuesta();
-        return view("Respuesta");
+        ViewBag.Correcta=Juego.VerificarRespuesta(idPregunta,idRespuesta);
+        return View("Respuesta");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

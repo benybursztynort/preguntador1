@@ -24,9 +24,10 @@ public static class Juego{
         _Preguntas=BD.ObtenerPreguntas(idDificultad,idCategoria);
         _Respuestas=BD.ObtenerRespuestas(idPreg);
     }
-    public static void ObtenerProximaPregunta(List<Pregunta>ListaPreguntas){
+    public static Random ObtenerProximaPregunta(List<Pregunta>ListaPreguntas){//PREGUNTAR SI ESTA BIEN EL RANDMOM
         Random Pregunta =new Random();
         Pregunta.Next(0,ListaPreguntas.Count());
+        return Pregunta;
     }
     public static List<Respuesta> ObtenerProximasRespuestas(int idPregunta){
         List<Respuesta>listRespuesta = new List<Respuesta>();
@@ -36,29 +37,21 @@ public static class Juego{
         }
         return listRespuesta;
     }
+
+    //devolver true si la respuesta es correcta y si la respuesta corresponde con la pregunta
+    // devolver false en otros casos
     public static bool VerificarRespuesta(int idPregunta, int idrRespuesta){
-        Pregunta pregunta;
-        Respuesta respuesta;
-        for(int x =0; x< _Respuestas.Count();x++){
-            if(_Respuestas[x].IdrRespuesta ==idrRespuesta){
-                respuesta = _Respuestas[x];
-                break;
-            }
+
+        if (_Respuestas[idrRespuesta].IdPregunta!=idPregunta || _Respuestas[idrRespuesta].Correcta!=false )
+        {
+          return false;
         }
-            for (int x = 0; x < _Preguntas.Count(); x++){
-            if (_Preguntas[x].IdPregunta == idPregunta){
-                _Preguntas.RemoveAt(x);
-                break;
-            }
-        }
-        if (respuesta.Correcta){
-            int _puntajeActual=0;
-            _puntajeActual  =_puntajeActual+100;
-            _cantidadPreguntasCorrectas++;
-            return true;
-        }
-        return false;
-        }
+        
+        int _puntajeActual=0;
+        _puntajeActual  =_puntajeActual+100;
+        _cantidadPreguntasCorrectas++;
+        return true;
+        
     }
     
-    
+}
