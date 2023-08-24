@@ -18,12 +18,11 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult ConfigurarJuego(int idCategoria,int idDificultad, List<Pregunta>ListaPreguntas)
+    public IActionResult ConfigurarJuego()//LLAMAR AL PROFE
     {
         Juego.InicializarJuego();
-        ViewBag.Categorias= BD.ObtenerCategorias(idCategoria);
-        ViewBag.Dificultades= BD.ObtenerDificultades(idDificultad);
-        ViewBag.Preguntas= Juego.ObtenerProximaPregunta(ListaPreguntas);
+        ViewBag.Categorias= BD.ObtenerCategorias();
+        ViewBag.Dificultades= BD.ObtenerDificultades();
         if(ViewBag.Preguntas==null){
              return RedirectToAction("Jugar","Home");
         } else{
@@ -36,7 +35,7 @@ public class HomeController : Controller
         return View();
         //VERFIFICAR QUE ESTE BIEN
     }
-    public IActionResult Jugar(List<Pregunta>ListaPreguntas, int idPregunta)
+    public IActionResult Jugar(List<Pregunta>ListaPreguntas, int idPregunta)//LLAMAR AL PROFE
     {
          ViewBag.pregunta=Juego.ObtenerProximaPregunta(ListaPreguntas);
         if(ViewBag.pregunta==null){

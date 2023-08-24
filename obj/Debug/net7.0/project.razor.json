@@ -18675,6 +18675,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\47867214\\preguntador1\\Views\\Home\\ConfigurarJuego.cshtml",
+      "TargetPath": "Views\\Home\\ConfigurarJuego.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\47867214\\preguntador1\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"

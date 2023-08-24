@@ -13,12 +13,12 @@ public static class Juego{
         _cantidadPreguntasCorrectas=0;
     }
 
-    public static List<Categoria> ObtenerCategorias(int idCategoria){
-        return BD.ObtenerCategorias(idCategoria);
+    public static List<Categoria> ObtenerCategorias(){
+        return BD.ObtenerCategorias();
     }
 
-    public static List<Dificultad>ObtenerDificultades(int idDificultad){
-        return BD.ObtenerDificultades(idDificultad);
+    public static List<Dificultad>ObtenerDificultades(){
+        return BD.ObtenerDificultades();
     }
     public static void CargarPartida(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria){
         _Preguntas=BD.ObtenerPreguntas(idDificultad,idCategoria);

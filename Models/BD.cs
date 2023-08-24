@@ -6,23 +6,23 @@ using System.Data;
 static class BD{
 
      private static string _connectionString = @"Server=localhost;DataBase=Preguntados;Trusted_Connection=True;";
-     public static List<Categoria> ObtenerCategorias(int idCategoria)
+     public static List<Categoria> ObtenerCategorias()
      {
          List<Categoria> ListaCategorias= null;
          using(SqlConnection db = new SqlConnection(_connectionString))
          {
             string sp="sp_ObtenerCategorias";
-            ListaCategorias = db.Query<Categoria>(sp, new { cat = idCategoria} ,  commandType : CommandType.StoredProcedure).ToList();
+            ListaCategorias = db.Query<Categoria>(sp, commandType : CommandType.StoredProcedure).ToList();
          }
          return ListaCategorias;
      }
 
-     public static List<Dificultad> ObtenerDificultades(int idDificultad){
+     public static List<Dificultad> ObtenerDificultades(){
      List<Dificultad> ListaDificultades= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
         string sp="exec sp_ObtenerDificultades @dif";
-        ListaDificultades = db.Query<Dificultad>(sp, new { dif = idDificultad} , 
+        ListaDificultades = db.Query<Dificultad>(sp, 
         commandType : CommandType.StoredProcedure).ToList();
      }
      return ListaDificultades;
