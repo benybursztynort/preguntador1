@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CdO8aWl+mUBn1GFvKuPEphIPSfUSdwH29yUwDVeEtaI=",
+  "Hash": "AOEUZ7/+enGBOC20AXJpP5btxRZqPqLB6hbXxQvkDj0=",
   "Source": "preguntador1",
   "BasePath": "_content/preguntador1",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\47867214\\preguntador1\\wwwroot\\img\\dado2.png",
+      "SourceId": "preguntador1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\47867214\\preguntador1\\wwwroot\\",
+      "BasePath": "_content/preguntador1",
+      "RelativePath": "img/dado2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\dado2.png"
     },
     {
       "Identity": "C:\\Users\\47867214\\preguntador1\\wwwroot\\js\\site.js",

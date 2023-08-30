@@ -21,7 +21,7 @@ static class BD{
      List<Dificultad> ListaDificultades= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="exec sp_ObtenerDificultades @dif";
+        string sp="sp_ObtenerDificultades";
         ListaDificultades = db.Query<Dificultad>(sp, 
         commandType : CommandType.StoredProcedure).ToList();
      }

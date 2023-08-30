@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\47867214\\preguntador1\\wwwroot\\img\\dado2.png",
+      "PackagePath": "staticwebassets\\img\\dado2.png"
+    },
+    {
       "Id": "C:\\Users\\47867214\\preguntador1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
