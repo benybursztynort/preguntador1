@@ -33,7 +33,7 @@ static class BD{
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
         string sp="exec sp_ObtenerPreguntas @dif,@cat";
-        ListaPreguntas = db.Query<Pregunta>(sp, new { dif =idDificultad,cat=idCategoria } , //PREGUNTAR SOBRE EL PREG Y EL IGUAL
+        ListaPreguntas = db.Query<Pregunta>(sp, new { dif =idDificultad,cat=idCategoria } , 
         commandType : CommandType.StoredProcedure).ToList();
      }
      return ListaPreguntas;

@@ -20,9 +20,9 @@ public static class Juego{
     public static List<Dificultad>ObtenerDificultades(){
         return BD.ObtenerDificultades();
     }
-    public static void CargarPartida(string username, int idDificultad, int idCategoria){
+    public static void CargarPartida(string username, int dificultad, int categoria){
         // obtengo la lista de preguntas
-        _Preguntas=BD.ObtenerPreguntas(idDificultad,idCategoria);
+        _Preguntas=BD.ObtenerPreguntas(dificultad,categoria);
         // con las preguntas que recibi, carga respuestas
         _Respuestas=BD.ObtenerRespuestas(_Preguntas);
     }

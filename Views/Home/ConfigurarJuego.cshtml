@@ -1,19 +1,26 @@
 <form action="" method="get">
     <div >
+        <h1>Categoria</h1>
         @foreach (Categoria c in @ViewBag.Categorias)
         {
-            <h1>@c</h1>
+            <h6>@c.Nombre</h6>
+            <input  type="radio" name="categoria" value="-1"  > 
+
         }
-        <input  type="radio" name="categoria" value="-1"  > 
             
     </div>
     <div>
+        <h1>Dificultad</h1>
         @foreach (Dificultad d in @ViewBag.Dificultades)
         {
-         <h1>@d</h1>
+         <h6>@d.nombre</h6>
+         <input  type="radio" name="dificultad" value="-1">
         }
-    <input  type="radio" name="dificultad" value="-1">
-
     </div>
-    
+    <div>
+        <a href='@Url.Action("Comenzar","Home")'>
+            @* no funca *@
+        <button type="button" class="btn btn-success mb-3 v">Jugar</button> 
+        </a>   
+    </div>
 </form>

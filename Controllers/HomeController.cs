@@ -18,30 +18,23 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult ConfigurarJuego()//LLAMAR AL PROFE
+    public IActionResult ConfigurarJuego()
     {
         Juego.InicializarJuego();
         ViewBag.Categorias= BD.ObtenerCategorias();
         ViewBag.Dificultades= BD.ObtenerDificultades();
         return View();
-        /*if(ViewBag.Preguntas==null){
-             return RedirectToAction("Jugar","Home");
-        } else{
-        return RedirectToAction("ConfigurarJuego","Home");
-        }*/
+     
     }
      public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         Juego.CargarPartida(username,dificultad,categoria);
-        //aca si vas a tener preguntas y podes ir a jugar o terminar
-
-        /*if(ViewBag.Preguntas==null){
+        BD.ObtenerPreguntas(dificultad,categoria);
+        if(ViewBag.Preguntas==null){
              return RedirectToAction("Jugar","Home");
         } else{
         return RedirectToAction("ConfigurarJuego","Home");
-        }*/
-        return View();
-        //VERFIFICAR QUE ESTE BIEN
+        }
     }
     public IActionResult Jugar(List<Pregunta>ListaPreguntas, int idPregunta)//LLAMAR AL PROFE
     {
