@@ -20,9 +20,11 @@ public static class Juego{
     public static List<Dificultad>ObtenerDificultades(){
         return BD.ObtenerDificultades();
     }
-    public static void CargarPartida(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria){
+    public static void CargarPartida(string username, int idDificultad, int idCategoria){
+        // obtengo la lista de preguntas
         _Preguntas=BD.ObtenerPreguntas(idDificultad,idCategoria);
-        _Respuestas=BD.ObtenerRespuestas(idPreg);
+        // con las preguntas que recibi, carga respuestas
+        _Respuestas=BD.ObtenerRespuestas(_Preguntas);
     }
     public static Random ObtenerProximaPregunta(List<Pregunta>ListaPreguntas){//PREGUNTAR SI ESTA BIEN EL RANDMOM
         Random Pregunta =new Random();

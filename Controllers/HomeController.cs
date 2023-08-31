@@ -23,15 +23,23 @@ public class HomeController : Controller
         Juego.InicializarJuego();
         ViewBag.Categorias= BD.ObtenerCategorias();
         ViewBag.Dificultades= BD.ObtenerDificultades();
-        if(ViewBag.Preguntas==null){
+        return View();
+        /*if(ViewBag.Preguntas==null){
              return RedirectToAction("Jugar","Home");
         } else{
         return RedirectToAction("ConfigurarJuego","Home");
-        }
+        }*/
     }
-     public IActionResult Comenzar(string username, int dificultad, int categoria, int idPreg, int idDificultad, int idCategoria)
+     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
-        Juego.CargarPartida(username,dificultad,categoria,idPreg,idDificultad,idCategoria);
+        Juego.CargarPartida(username,dificultad,categoria);
+        //aca si vas a tener preguntas y podes ir a jugar o terminar
+
+        /*if(ViewBag.Preguntas==null){
+             return RedirectToAction("Jugar","Home");
+        } else{
+        return RedirectToAction("ConfigurarJuego","Home");
+        }*/
         return View();
         //VERFIFICAR QUE ESTE BIEN
     }

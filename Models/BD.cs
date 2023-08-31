@@ -38,29 +38,19 @@ static class BD{
      }
      return ListaPreguntas;
        }
-        public static List<Respuesta> ObtenerRespuestas(int idPreg){
-     List<Respuesta> ListaRespuestas= null;
-     using(SqlConnection db = new SqlConnection(_connectionString))
-     {
-        string sp="exec sp_ObtenerRespuestas @res";
-        ListaRespuestas = db.Query<Respuesta>(sp, new { res = idPreg} , 
-        commandType : CommandType.StoredProcedure).ToList();
-     }
+   
+      public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas)
+      {
+         List<Respuesta> ListaRespuestas= null;
+         using(SqlConnection db = new SqlConnection(_connectionString))
+         {
+            string sp="sp_ObtenerRespuestas @res";
+            foreach (Pregunta p in preguntas)
+            {
+               ListaRespuestas.AddRange(db.Query<Respuesta>(sp, new { res = p.IdPregunta} ,  commandType : CommandType.StoredProcedure).ToList());
+            }
+         }
      return ListaRespuestas;
      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
