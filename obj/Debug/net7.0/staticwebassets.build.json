@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AOEUZ7/+enGBOC20AXJpP5btxRZqPqLB6hbXxQvkDj0=",
+  "Hash": "t+bMVhPIjJFDaC9y177XwiIlMOV5RQoHdWPM3KqIYrU=",
   "Source": "preguntador1",
   "BasePath": "_content/preguntador1",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\47867214\\preguntador1\\wwwroot\\script.sql4",
+      "SourceId": "preguntador1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\47867214\\preguntador1\\wwwroot\\",
+      "BasePath": "_content/preguntador1",
+      "RelativePath": "script.sql4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.sql4"
     }
   ]
 }

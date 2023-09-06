@@ -32,8 +32,8 @@ static class BD{
      List<Pregunta> ListaPreguntas= null;
      using(SqlConnection db = new SqlConnection(_connectionString))
      {
-        string sp="exec sp_ObtenerPreguntas @dif,@cat";
-        ListaPreguntas = db.Query<Pregunta>(sp, new { dif =idDificultad,cat=idCategoria } , 
+        string sp="sp_ObtenerPreguntas";
+        ListaPreguntas = db.Query<Pregunta>(sp, new { IdDificultad =idDificultad,IdCategoria=idCategoria } , 
         commandType : CommandType.StoredProcedure).ToList();
      }
      return ListaPreguntas;
@@ -44,10 +44,10 @@ static class BD{
          List<Respuesta> ListaRespuestas= null;
          using(SqlConnection db = new SqlConnection(_connectionString))
          {
-            string sp="sp_ObtenerRespuestas @res";
+            string sp="sp_ObtenerRespuestas @idPregunta";
             foreach (Pregunta p in preguntas)
             {
-               ListaRespuestas.AddRange(db.Query<Respuesta>(sp, new { res = p.IdPregunta} ,  commandType : CommandType.StoredProcedure).ToList());
+               ListaRespuestas.AddRange(db.Query<Respuesta>(sp, new { idPregunta = p.IdPregunta} ,  commandType : CommandType.StoredProcedure).ToList());
             }
          }
      return ListaRespuestas;

@@ -1,14 +1,20 @@
 using System.Collections.Generic;
 public static class Juego{
 
-    public static string _username{get;set;}
+    private static string _username = "";
     public static int _puntajeActual{get;set;}
     public static int _cantidadPreguntasCorrectas{get;set;}
     public static   List<Pregunta> _Preguntas = new List<Pregunta>();
     public static List<Respuesta> _Respuestas = new List<Respuesta>();
 
+    public static string username
+    {
+        get { return _username; }
+        set { _username = value; }
+    }
+
     public static void InicializarJuego(){
-        _username=null;
+        _username= "";
         _puntajeActual=0;
         _cantidadPreguntasCorrectas=0;
     }
@@ -26,17 +32,44 @@ public static class Juego{
         // con las preguntas que recibi, carga respuestas
         _Respuestas=BD.ObtenerRespuestas(_Preguntas);
     }
-    public static Random ObtenerProximaPregunta(List<Pregunta>ListaPreguntas){//PREGUNTAR SI ESTA BIEN EL RANDMOM
-        Random Pregunta =new Random();
-        Pregunta.Next(0,ListaPreguntas.Count());
-        return Pregunta;
+    public static Pregunta ObtenerProximaPregunta(){
+ 
+
+        if(_Preguntas.Count() != 0)
+        {
+            Random random = new Random();
+            int preguntaRandom = random.Next(0, _Preguntas.Count());
+            Pregunta preguntaElegidaAlAzar = _Preguntas[preguntaRandom];
+
+        if (_Preguntas.Count() > 3)
+        {
+            _Preguntas.RemoveAt(preguntaRandom);
+        }
+
+        return preguntaElegidaAlAzar;
+        }
+
+        else {
+            return null;
+        }
+
+
+        
     }
     public static List<Respuesta> ObtenerProximasRespuestas(int idPregunta){
         List<Respuesta>listRespuesta = new List<Respuesta>();
-        for(int x = 0; x < _Respuestas.Count();x ++){
-            if(_Respuestas[x].IdPregunta==idPregunta)
-            listRespuesta.Add(_Respuestas[x]);
+
+        foreach (Respuesta item in listRespuesta)
+        {
+            if (item.IdPregunta==idPregunta)
+            {
+                listRespuesta.Add(item);
+            }
         }
+        // for(int x = 0; x < _Respuestas.Count();x ++){
+        //     if(_Respuestas[x].IdPregunta==idPregunta)
+        //     listRespuesta.Add(_Respuestas[x]);
+        // }
         return listRespuesta;
     }
 

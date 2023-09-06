@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\47867214\\preguntador1\\wwwroot\\script.sql4",
+      "PackagePath": "staticwebassets\\script.sql4"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.preguntador1.props",
       "PackagePath": "build\\preguntador1.props"
     },
